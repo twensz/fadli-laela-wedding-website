@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "CatalishHuntera";
+  src: url(./assets/fonts/CatalishHuntera.ttf);
+}
+
+@font-face {
+  font-family: "CatalishHunteraItalic";
+  src: url(./assets/fonts/CatalishHunteraItalic.ttf);
+}
+
+@font-face {
+  font-family: "CedarvilleCursive";
+  src: url(./assets/fonts/CedarvilleCursive.ttf);
+}
+
+@font-face {
+  font-family: "Roustel";
+  src: url(./assets/fonts/Roustel.ttf);
+}

@@ -1,0 +1,202 @@
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.cover {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+}
+.cover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: var(--cover-image-small);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+.cover::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 0) 100%);
+  z-index: -1;
+}
+
+@media (min-width: 500px) {
+  .cover::before {
+    background-image: var(--cover-image-medium);
+  }
+}
+@media (min-width: 900px) {
+  .cover::before {
+    background-image: var(--cover-image-large);
+  }
+}
+
+#hero {
+  position: relative;
+}
+#hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: var(--hero-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(0.8) saturate(0.9);
+  z-index: -1;
+}
+#hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 0) 50%);
+  z-index: -1;
+}
+@media (min-width: 900px) {
+  #hero::before {
+    background-image: var(--hero-image-large);
+  }
+}
+
+#date {
+  position: relative;
+}
+#date::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: top;
+  z-index: -1;
+  opacity: 0.4;
+}
+#date::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: 0.05;
+  @apply bg-primary;
+}
+@media (min-width: 700px) {
+  #date::before {
+    background-image: var(--bg-image-large);
+  }
+}
+
+#quotes,
+#couple,
+#gallery,
+#wish {
+  position: relative;
+  z-index: 0;
+}
+#quotes::before,
+#couple::before,
+#gallery::before,
+#wish::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  background-image: var(--pattern-image);
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  opacity: 0.1;
+}
+#couple::before,
+#gallery::before {
+  opacity: 0.04;
+}
+#wish::before {
+  opacity: 0.12;
+}
+
+.wedding-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+#closing {
+  position: relative;
+}
+#closing::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)), var(--closing-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+@media (min-width: 700px) {
+  #closing::before {
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)), var(--closing-image-large);
+  }
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: 2px solid #e2d5e1;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+  @apply w-5 h-5 border-2 border-primary;
+}
+input[type="radio"]::before {
+  content: "";
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  @apply w-2 h-2 bg-primary;
+}
+input[type="radio"]:checked::before {
+  transform: scale(1);
+}
+input[type="radio"]:focus {
+  outline-offset: 2px;
+  @apply outline-1 outline-primary;
+}
